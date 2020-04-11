@@ -122,7 +122,7 @@ export default {
    return {
     username:'',
     phoneList:[]
-   }
+   } 
   },
   filters:{
    currency(val){
@@ -196,6 +196,7 @@ export default {
      width: 55px;
      height: 55px;
      background-color: $colorA;
+     overflow: hidden;
      a{
        display:inline-block;
        width:110px;
@@ -204,14 +205,14 @@ export default {
          content:' ';
          @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
          transition:margin .2s;
+       }       
+       &:hover:before{
+         margin-left:-55px;
+         transition:margin .2s;
        }
        &:after{
          content:' ';
          @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
-       }
-       &:hover:before{
-         margin-left:-55px;
-         transition:margin .2s;
        }
       }
      }
@@ -248,6 +249,7 @@ export default {
               box-shadow:0px 7px 6px 0px rgba(0, 0, 0, 0.11);
               z-index: 10;
               transition:all .5s;
+              background-color:#ffffff;
               .product{
                 position:relative;
                 float:left;
