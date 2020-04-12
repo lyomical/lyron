@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyLoader from 'vue-lazyload'
 import App from './App.vue'
 
 //mock测试数据
@@ -24,6 +25,10 @@ axios.interceptors.response.use(function(response) {
 })
 
 Vue.use(VueAxios, axios);
+//图片加载动画
+Vue.use(VueLazyLoader,{
+ laoding:'/imgs/loading-svg/loading-bars.svg'
+});
 Vue.config.productionTip = false;
 
 new Vue({
