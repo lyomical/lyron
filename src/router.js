@@ -51,6 +51,7 @@ export default new Router({
             path: '/order',
             name: 'order',
             component: Order,
+            //redirect: '/order/list',
             children: [{
                     path: 'list',
                     name: 'order-list',
