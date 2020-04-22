@@ -91,13 +91,15 @@ export default {
           selected = item.productSelected;
       if(type == '-'){
         if(quantity==1){
-          alert('商品至少保留一件');
+          //alert('商品至少保留一件');
+          this.$message.error('商品至少保留一件');
           return;
         }
         --quantity;
       }else if(type == '+'){
         if(quantity> item.productStock){
-          alert('购买数量不能超过库存数量');
+          //alert('购买数量不能超过库存数量');
+          this.$message.waring('购买数量不能超过库存数量');
           return;
         }
         ++quantity;
@@ -116,6 +118,7 @@ export default {
     //删除购物购物车商品
     delProduct(item){
       this.axios.delete(`/carts/${item.productId}`).then((res)=>{
+        this.$message.success('删除成功');
         this.renderData(res);
       });
     },
@@ -137,7 +140,8 @@ export default {
     order(){
       let isCheck = this.list.every(item=>!item.productSelected);//默认全不选状态
       if(isCheck){
-        alert('请选择一件商品');
+        //alert('请选择一件商品');
+        this.$message('请选择一件商品');
       }else{
         this.$router.push('/order/confirm');
       }

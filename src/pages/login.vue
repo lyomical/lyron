@@ -54,12 +54,17 @@ export default {
         username,
         password
       }).then((res)=>{
-        this.$cookie.set('userId',res.id,{expires:'1M'});
+        this.$cookie.set('userId',res.id,{expires:'Session'});
         // to-do 保存用户名
         //this.$store.dispatch('saveUserName',res.username);
         this.saveUserName(res.username);
         //console.log(res.id);        
-        this.$router.push('/index');
+        this.$router.push({
+          name:'index',
+          params:{
+            from:'login'
+          }
+        });
       })
     },
     ...mapActions(['saveUserName']),
@@ -69,7 +74,8 @@ export default {
         password:'hakuna',
         email:'hakuna@163.com'
       }).then(()=>{
-        alert('注册成功');
+        //alert('注册成功');
+        this.$message.waring('请选择注册成功一件商品');
       })
     }
   }

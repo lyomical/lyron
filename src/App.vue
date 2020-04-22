@@ -14,6 +14,11 @@ export default {
   mounted() {
    this.getUser();
    this.getCartCount();
+   //判断用户信息是否还存在cookie里，如果不存在，则因用户已退出
+   if(this.$cookie.get('userId')){
+     this.getUser();
+     this.getCartCount();
+   }
   },
   methods: {
    getUser(){

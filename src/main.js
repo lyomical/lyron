@@ -2,11 +2,12 @@ import Vue from 'vue'
 import VueCookie from 'vue-cookie'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import { Message } from 'element-ui'
 import VueLazyLoader from 'vue-lazyload'
 import router from './router'
 import store from './store'
-
 import App from './App.vue'
+import 'element-ui/lib/theme-chalk/index.css';
 
 //mock测试数据
 const mock = false;
@@ -26,17 +27,20 @@ axios.interceptors.response.use(function(response) {
      window.location.href = '/#/login';
     }
   } else {
-    alert(res.msg);
+    //alert(res.msg);
+    Message.warning(res.msg);
     return Promise.reject(res);
   }
 })
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
+
 //图片加载动画
 Vue.use(VueLazyLoader,{
  laoding:'/imgs/loading-svg/loading-bars.svg'
 });
+Vue.prototype.$message = Message;
 Vue.config.productionTip = false;
 
 new Vue({
