@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      orderId:this.$route.query.orderId,
+      orderNo:this.$route.query.orderNo,
       content:'',
       loading:true,
     }
@@ -24,7 +24,7 @@ export default {
   methods: {
     paySubmit(){
       this.axios.post('/pay',{
-        orderId:this.orderId,
+        orderId:this.orderNo,
         orderName:'VUE高仿商城',
         amount:0.01, //单位元
         payType:1, //1支付宝，2微信
