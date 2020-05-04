@@ -61,8 +61,9 @@
           </div>
           <div class="scroll-more" 
             v-infinite-scroll="scrollMore"
-            infinite-scroll-disabled="busy"
-            infinite-scroll-distance="100">
+            infinite-scroll-disabled="true"
+            infinite-scroll-distance="100"
+            v-if="false">
             <img src="/imgs/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
           </div>
           <no-data v-if="!loading && list.length == 0"></no-data>
